@@ -5,14 +5,20 @@
 function lastIndexOf(array,value) {
 
   var arrayPos = (array.length - 1);
-  var arrayVal = null;
 
-for (arrayPos; arrayPos !== -1; arrayPos--) {
-  if (array[arrayPos] == value) {
-    return arrayPos;
-  }
-  }
+  if (arrayPos == -1) {
+    return arrayPos
+  } else
+        for (arrayPos; arrayPos !== -1; arrayPos--) {
+          if (array[arrayPos] == value) {
+            return arrayPos;
+          } else if (arrayPos === 0) {
+            arrayPos = -1
+            return arrayPos;
+          }
+        }
 }
+
 
 console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 1), "=?", 3);
 console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 2), "=?", 4);
